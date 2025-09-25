@@ -1,0 +1,173 @@
+:root {
+    --primary: #4a6fa5;
+    --secondary: #166088;
+    --accent: #4fc3f7;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --success: #28a745;
+    --warning: #ffc107;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.calendar {
+    grid-column: 1;
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tasks {
+    grid-column: 1;
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-form {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.history {
+    grid-column: 2;
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.calendar-day:hover {
+    background-color: var(--light);
+}
+
+.calendar-day.has-tasks {
+    background-color: var(--accent);
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-day.selected {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    background: var(--light);
+    border-left: 4px solid var(--primary);
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: var(--secondary);
+}
+
+.history-item {
+    background: var(--light);
+    border-left: 4px solid var(--warning);
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .task-form {
+        grid-column: 1;
+        grid-row: auto;
+    }
+}
